@@ -4,4 +4,4 @@
 
 - Initial release
 
-[v0.1.0]: https://github.com/nyrLang/nyrLang-syntax-vscode/tags/v0.1.0
+[v0.1.0]: https://github.com/nyrLang/nyrLang-syntax-vscode/tag/v0.1.0

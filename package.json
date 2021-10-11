@@ -17,7 +17,7 @@
 	"contributes": {
 		"languages": [{
 			"id": "nyr",
-			"aliases": ["nyr", "nyr"],
+			"aliases": ["nyr", "nyrLang"],
 			"extensions": [".nyr"],
 			"configuration": "./language-configuration.json"
 		}],
