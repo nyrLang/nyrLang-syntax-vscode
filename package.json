@@ -1,0 +1,25 @@
+{
+	"name": "nyr",
+	"displayName": "nyr",
+	"description": "syntax highlighting for nyr programming language",
+	"version": "0.1.0",
+	"engines": {
+		"vscode": "^1.59.0"
+	},
+	"categories": [
+		"Programming Languages"
+	],
+	"contributes": {
+		"languages": [{
+			"id": "nyr",
+			"aliases": ["nyr", "nyr"],
+			"extensions": [".nyr"],
+			"configuration": "./language-configuration.json"
+		}],
+		"grammars": [{
+			"language": "nyr",
+			"scopeName": "source.nyr",
+			"path": "./syntaxes/nyr.tmLanguage.json"
+		}]
+	}
+}
