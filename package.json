@@ -1,0 +1,30 @@
+{
+	"name": "nyr",
+	"displayName": "nyr",
+	"publisher": "nyrLang",
+	"description": "syntax highlighting for nyr programming language",
+	"repository": {
+		"type": "git",
+		"url": "https://github.com/nyrLang/nyrLang-syntax-vscode"
+	},
+	"version": "0.1.0",
+	"engines": {
+		"vscode": "^1.59.0"
+	},
+	"categories": [
+		"Programming Languages"
+	],
+	"contributes": {
+		"languages": [{
+			"id": "nyr",
+			"aliases": ["nyr", "nyr"],
+			"extensions": [".nyr"],
+			"configuration": "./language-configuration.json"
+		}],
+		"grammars": [{
+			"language": "nyr",
+			"scopeName": "source.nyr",
+			"path": "./syntaxes/nyr.tmLanguage.json"
+		}]
+	}
+}

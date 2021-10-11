@@ -1,0 +1,165 @@
+{
+	"scopeName": "source.nyr",
+	"$schema": "https://raw.githubusercontent.com/martinring/tmlanguage/master/tmlanguage.json",
+	"name": "nyr",
+	"patterns": [
+		{ "include": "#comments" },
+		{ "include": "#keywords" },
+		{ "include": "#strings" },
+		{ "include": "#operators" },
+		{ "include": "#delimiters" },
+		{ "include": "#string-escaped-char" }
+	],
+	"repository": {
+		"comments": {
+			"patterns": [
+				{ "include": "#shebang" },
+				{ "include": "#comments-inline" }
+			]
+		},
+		"comments-inline": {
+			"patterns": [
+				{
+					"name": "comment.block.nyr",
+					"begin": "\\/\\*",
+					"end": "\\*\\/",
+					"captures": {
+						"0": {
+							"name": "punctuation.definition.comment.nyr"
+						}
+					}
+				},
+				{
+					"begin": "(^\\s+)?(?=\\/\\/)",
+					"end": "(?!\\G)",
+					"beginCaptures": {
+						"1": {
+							"name": "punctuation.whitespace.comment.leading.nyr"
+						}
+					},
+					"patterns": [
+						{
+							"name": "comment.line.double-slash.nyr",
+							"begin": "\\/\\/",
+							"end": "\\n",
+							"beginCaptures": {
+								"0": {
+									"name": "punctuation.definition.comment.nyr"
+								}
+							}
+						}
+					]
+				}
+			]
+		},
+		"delimiters": {
+			"patterns": [
+				{
+					"name": "punctuation.other.comma.nyr",
+					"match": ","
+				},
+				{
+					"name": "punctuation.other.period.nyr",
+					"match": "\\.(?!\\.\\.)"
+				},
+				{
+					"name": "punctuation.other.colon.nyr",
+					"match": ":"
+				}
+			]
+		},
+		"shebang": {
+			"name": "comment.line.shebang.nyr",
+			"match": "\\A(#!).*(?=$)",
+			"captures": {
+				"1": {
+					"name": "punctuation.definition.comment.nyr"
+				}
+			}
+		},
+		"keywords": {
+			"patterns": [
+				{
+					"name": "keyword.control.nyr",
+					"comment": "Flow Control",
+					"match": "\\b(if|else|do|while|for|return|break|continue)\\b"
+				},
+				{
+					"name": "keyword.let.nyr",
+					"match": "\\blet\\b"
+				},
+				{
+					"name": "keyword.def.nyr",
+					"match": "\\bdef\\b"
+				},
+				{
+					"name": "keyword.class.nyr",
+					"match": "\\bclass\\b"
+				},
+				{
+					"name": "keyword.this.nyr",
+					"match": "\\bthis\\b"
+				},
+				{
+					"name": "keyword.super.nyr",
+					"match": "\\bsuper\\b"
+				},
+				{
+					"name": "keyword.new.nyr",
+					"match": "\\bnew\\b"
+				}
+			]
+		},
+		"strings": {
+			"name": "string.quoted.double.nyr",
+			"begin": "\"",
+			"end": "\"",
+			"patterns": [
+				{
+					"name": "constant.character.escape.nyr",
+					"match": "\\\\."
+				}
+			]
+		},
+		"operators": {
+			"patterns": [
+				{
+					"name": "keyword.operator.assignment.compound.nyr",
+					"match": "[\\+\\-\\*\\/\\%]\\="
+				},
+				{
+					"name": "keyword.operator.assignment.compound.bitwise.nyr",
+					"match": "[\\&\\|\\^]\\="
+				},
+				{
+					"name": "keyword.operator.comparison.nyr",
+					"match": "(==|!=|<=|>=|<(?!<)|>(?!>))"
+				},
+				{
+					"name": "keyword.operator.logical.nyr",
+					"match": "\\!|&&|\\|\\|"
+				},
+				{
+					"name": "keyword.operator.arithmetic.nyr",
+					"match": "(\\+|\\-|\\*|\\/|\\%)"
+				},
+				{
+					"name": "keyword.operator.arithmetic.bitwise.nyr",
+					"match": "(\\&|\\^|\\|)"
+				}
+			]
+		},
+		"string-escaped-char": {
+			"patterns": [
+				{
+					"match": "\\\\([0-7]{3}|[abfnrtv\\\\'\"]|x[0-9a-fA-F]{2}|u[0-9a-fA-F]{4}|U[0-9a-fA-F]{8})",
+					"name": "constant.character.escape.go"
+				},
+				{
+					"match": "\\\\[^0-7xuUabfnrtv\\'\"]",
+					"name": "invalid.illegal.unknown-escape.go"
+				}
+			]
+		}
+	}
+}
